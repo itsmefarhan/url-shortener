@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css " />
+    <title>URL Shortner</title>
+  </head>
+  <body>
+    <h1>URL Shortener Demo</h1>
+    <form action="/shorten" method="POST">
+      <input
+        type="url"
+        placeholder="Enter URL to shorten it..."
+        required
+        name="fullUrl"
+        id="fullUrl"
+      />
+      <button type="submit">Submit</button>
+    </form>
+    <table>
+      <thead>
+        <th>Full URL</th>
+        <th>Short URL</th>
+        <th>Click</th>
+      </thead>
+      <tbody>
+        <% urls.forEach(url => { %>
+        <tr>
+          <td><a href="<%= url.full %>"><%= url.full %></a></td>
+          <td><a href="<%= url.short %>"><%= url.short %></a></td>
+          <td><%= url.clicks %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
